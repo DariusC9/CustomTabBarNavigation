@@ -1,0 +1,32 @@
+included:
+  - "CustomTabBarNavigation"
+
+excluded:
+  - "CustomTabBarNavigationTests"
+
+opt_in_rules:
+  - operator_usage_whitespace
+  
+trailing_whitespace:
+  severity: error
+  ignore_comment_lines: true
+opening_brace:
+  severity: error
+operator_usage_whitespace:
+  severity: error
+  lines_look_around: 2
+  skip_aligned_constants: true
+vertical_whitespace:
+  severity: error
+line_length:
+  warning: 260
+  error: 300
+identifier_name:
+  allowed_symbols: "_"
+  min_length: 4
+  max_length:
+    warning: 30
+    error: 50
+  excluded:
+    - id
+    - geo

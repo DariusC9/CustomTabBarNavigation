@@ -10,11 +10,13 @@ import SwiftUI
 struct TabButton: View {
     let imageName: String
     let action: () -> Void
+
     var body: some View {
         Button {
             action()
         } label: {
             Image(systemName: imageName)
+                .font(.system(size: 24, weight: .bold))
                 .foregroundStyle(.gray)
         }
     }

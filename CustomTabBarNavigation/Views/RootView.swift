@@ -24,6 +24,9 @@ struct RootView: View {
             ProfileView()
                 .tag(3)
         }
+        .overlay(alignment: .bottom) {
+            CustomTabBar()
+        }
     }
 }
 

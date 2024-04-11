@@ -10,7 +10,6 @@ import SwiftUI
 struct CustomTabBar: View {
     @Binding var selectedScreen: Int
     @Binding var showTabBar: Bool
-    @State private var yOffSet: CGFloat = 200
 
     var body: some View {
             HStack(spacing: 40) {
@@ -32,12 +31,6 @@ struct CustomTabBar: View {
             .padding([.leading, .trailing], 30)
             .background(Color.white)
             .clipShape(.rect(cornerRadius: 20))
-            .offset(y: yOffSet)
-            .onAppear {
-                withAnimation(.bouncy) {
-                    yOffSet = 0
-                }
-            }
     }
 }
 

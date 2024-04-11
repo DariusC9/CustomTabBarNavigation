@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var showTabBar: Bool
+
     var body: some View {
-        VStack {
-            Text("Home")
-                .font(.title)
-                .bold()
-                .padding()
-            Button {
-                print("push next")
-            } label: {
-                Text("Push next")
+
+        NavigationStack {
+            VStack {
+                Text("Home")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                NavigationLink(destination: HomeDetailsView(showTabBar: $showTabBar)) {
+                    Text("Push next")
+                }
+                .buttonStyle(.bordered)
             }
-            .buttonStyle(.bordered)
+            .containerRelativeFrame([.horizontal, .vertical])
+            .background(Color.homeViewBackground)
         }
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(Color.homeViewBackground)
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(showTabBar: .constant(false))
 }

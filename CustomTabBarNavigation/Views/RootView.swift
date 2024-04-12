@@ -17,6 +17,7 @@ struct RootView: View {
     @State private var showTabBar = true
 
     var body: some View {
+
         TabView(selection: $selectedTab) {
             HomeView(showTabBar: $showTabBar)
                 .tag(TabBarItem(iconName: "house.fill"))
@@ -30,6 +31,10 @@ struct RootView: View {
             ProfileView()
                 .tag(TabBarItem(iconName: "person.fill"))
         }
+        .animation(.easeIn(duration: 0.1), value: selectedTab)
+        .transition(.slide)
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .ignoresSafeArea(.all)
         .overlay(alignment: .bottom) {
             CustomTabBar(tabs: tabs, selectedTab: $selectedTab)
                 .hideTabBarAnimation(showTabBar: $showTabBar)

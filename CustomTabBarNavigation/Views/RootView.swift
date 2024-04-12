@@ -8,25 +8,30 @@
 import SwiftUI
 
 struct RootView: View {
+    let tabs: [TabBarItem] = [TabBarItem(iconName: "house.fill"),
+                              TabBarItem(iconName: "magnifyingglass"),
+                              TabBarItem(iconName: "clock"),
+                              TabBarItem(iconName: "person.fill")]
+    @State private var selectedTab = TabBarItem(iconName: "house.fill")
     @State private var selectedScreen = 0
     @State private var showTabBar = true
 
     var body: some View {
-        TabView(selection: $selectedScreen) {
+        TabView(selection: $selectedTab) {
             HomeView(showTabBar: $showTabBar)
-                .tag(0)
+                .tag(TabBarItem(iconName: "house.fill"))
 
             SearchView()
-                .tag(1)
+                .tag(TabBarItem(iconName: "magnifyingglass"))
 
             HistoryView()
-                .tag(2)
+                .tag(TabBarItem(iconName: "clock"))
 
             ProfileView()
-                .tag(3)
+                .tag(TabBarItem(iconName: "person.fill"))
         }
         .overlay(alignment: .bottom) {
-            CustomTabBar(selectedScreen: $selectedScreen, showTabBar: $showTabBar)
+            CustomTabBar(tabs: tabs, selectedTab: $selectedTab)
                 .hideTabBarAnimation(showTabBar: $showTabBar)
         }
     }

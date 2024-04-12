@@ -9,5 +9,4 @@ import SwiftUI
 
 struct TabBarItem: Hashable {
     let iconName: String
-    let color: Color
 }

@@ -16,15 +16,19 @@ struct CustomTabBar: View {
                 TabButton(imageName: "house.fill") {
                     selectedScreen = 0
                 }
+                .foregroundStyle(selectedScreen == 0 ? .blue : .gray)
                 TabButton(imageName: "magnifyingglass") {
                    selectedScreen = 1
                 }
+                .foregroundStyle(selectedScreen == 1 ? .blue : .gray)
                 TabButton(imageName: "clock") {
                     selectedScreen = 2
                 }
+                .foregroundStyle(selectedScreen == 2 ? .blue : .gray)
                 TabButton(imageName: "person.fill") {
                     selectedScreen = 3
                 }
+                .foregroundStyle(selectedScreen == 3 ? .blue : .gray)
             }
             .frame(height: 60)
             .padding([.top, .bottom], 10)

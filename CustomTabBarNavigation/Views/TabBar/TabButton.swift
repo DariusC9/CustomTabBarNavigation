@@ -17,7 +17,6 @@ struct TabButton: View {
         } label: {
             Image(systemName: imageName)
                 .font(.system(size: 24, weight: .bold))
-                .foregroundStyle(.gray)
         }
     }
 }

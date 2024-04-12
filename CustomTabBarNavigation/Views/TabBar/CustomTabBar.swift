@@ -12,14 +12,16 @@ struct CustomTabBar: View {
     @Binding var selectedTab: TabBarItem
 
     var body: some View {
-            HStack(spacing: 40) {
-                ForEach(tabs, id: \.self) { tab in
-                    createTabBarButton(tab: tab)
-                        .onTapGesture {
+        HStack(spacing: 40) {
+            ForEach(tabs, id: \.self) { tab in
+                tab.tabImage()
+                    .onTapGesture {
+                        withAnimation(.easeInOut) {
                             selectedTab = tab
                         }
-                }
+                    }
             }
+        }
             .frame(height: 60)
             .padding([.top, .bottom], 10)
             .padding([.leading, .trailing], 30)
@@ -28,11 +30,11 @@ struct CustomTabBar: View {
     }
 }
 
-extension CustomTabBar {
-
-    private func createTabBarButton(tab: TabBarItem) -> some View {
-        Image(systemName: tab.iconName)
-            .font(.system(size: 24, weight: .bold))
-            .foregroundStyle(selectedTab == tab ? .blue : .gray)
-    }
-}
+// extension CustomTabBar {
+//
+////    private func createTabBarButton(tab: TabBarItem) -> some View {
+////        Image(systemName: tab.iconName)
+////            .font(.system(size: 24, weight: .bold))
+////            .foregroundStyle(selectedTab == tab ? .blue : .gray)
+////    }
+// }

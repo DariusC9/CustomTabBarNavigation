@@ -7,6 +7,48 @@
 
 import SwiftUI
 
-struct TabBarItem: Hashable {
-    let iconName: String
+enum TabBarItem: String,CaseIterable,CustomStringConvertible {
+    case home
+    case search
+    case history
+    case profile
+
+    var description: String {
+        switch self {
+        case .home: "Home"
+        case .search: "Search"
+        case .history: "History"
+        case .profile: "Profile"
+        }
+    }
+
+    @ViewBuilder func tabImage() -> some View {
+        switch self {
+        case .home:
+            Image(systemName: "house.fill")
+                .font(.system(size: 24, weight: .bold))
+        case .search:
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 24, weight: .bold))
+        case .history:
+            Image(systemName: "clock")
+                .font(.system(size: 24, weight: .bold))
+        case .profile:
+            Image(systemName: "person.fill")
+                .font(.system(size: 24, weight: .bold))
+        }
+    }
+
+    @ViewBuilder func view() -> some View {
+        switch self {
+        case .home:
+            HomeView(showTabBar: .constant(true))
+        case .search:
+            SearchView()
+        case .history:
+            HistoryView()
+        case .profile:
+            ProfileView()
+        }
+    }
 }

@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct RootView: View {
+    let tabs: [TabBarItem] = [.home, .search, .history, .profile]
+    @State private var selectedTab: TabBarItem = .home
     @State private var selectedScreen = 0
     @State private var showTabBar = true
 
     var body: some View {
-        TabView(selection: $selectedScreen) {
-            HomeView(showTabBar: $showTabBar)
-                .tag(0)
 
-            SearchView()
-                .tag(1)
-
-            HistoryView()
-                .tag(2)
-
-            ProfileView()
-                .tag(3)
+        VStack {
+            selectedTab.view(bindingBool: $showTabBar)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .transition(.slide)
         }
         .overlay(alignment: .bottom) {
-            CustomTabBar(selectedScreen: $selectedScreen, showTabBar: $showTabBar)
+            CustomTabBar(tabs: tabs, selectedTab: $selectedTab)
                 .hideTabBarAnimation(showTabBar: $showTabBar)
         }
     }

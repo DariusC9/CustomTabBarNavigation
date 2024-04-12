@@ -8,27 +8,18 @@
 import SwiftUI
 
 struct CustomTabBar: View {
+    let tabs: [TabBarItem] = [TabBarItem(iconName: "house.fill", color: .gray),
+                              TabBarItem(iconName: "magnifyingglass", color: .gray),
+                              TabBarItem(iconName: "clock", color: .gray),
+                              TabBarItem(iconName: "person.fill", color: .gray)]
     @Binding var selectedScreen: Int
     @Binding var showTabBar: Bool
 
     var body: some View {
             HStack(spacing: 40) {
-                TabButton(imageName: "house.fill") {
-                    selectedScreen = 0
+                ForEach(tabs, id: \.self) { tab in
+                    createTabBarButton(tab: tab)
                 }
-                .foregroundStyle(selectedScreen == 0 ? .blue : .gray)
-                TabButton(imageName: "magnifyingglass") {
-                   selectedScreen = 1
-                }
-                .foregroundStyle(selectedScreen == 1 ? .blue : .gray)
-                TabButton(imageName: "clock") {
-                    selectedScreen = 2
-                }
-                .foregroundStyle(selectedScreen == 2 ? .blue : .gray)
-                TabButton(imageName: "person.fill") {
-                    selectedScreen = 3
-                }
-                .foregroundStyle(selectedScreen == 3 ? .blue : .gray)
             }
             .frame(height: 60)
             .padding([.top, .bottom], 10)
@@ -40,4 +31,13 @@ struct CustomTabBar: View {
 
 #Preview {
     CustomTabBar(selectedScreen: .constant(0), showTabBar: .constant(true))
+}
+
+extension CustomTabBar {
+
+    private func createTabBarButton(tab: TabBarItem) -> some View {
+        Image(systemName: tab.iconName)
+            .font(.system(size: 24, weight: .bold))
+            .foregroundStyle(tab.color)
+    }
 }

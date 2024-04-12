@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TabBarItem: String,CaseIterable,CustomStringConvertible {
+enum TabBarItem: String, CaseIterable, CustomStringConvertible {
     case home
     case search
     case history
@@ -39,10 +39,10 @@ enum TabBarItem: String,CaseIterable,CustomStringConvertible {
         }
     }
 
-    @ViewBuilder func view() -> some View {
+    @ViewBuilder func view(bindingBool: Binding<Bool>) -> some View {
         switch self {
         case .home:
-            HomeView(showTabBar: .constant(true))
+            HomeView(showTabBar: bindingBool)
         case .search:
             SearchView()
         case .history:

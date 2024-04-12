@@ -20,6 +20,7 @@ struct CustomTabBar: View {
                             selectedTab = tab
                         }
                     }
+                    .foregroundStyle(selectedTab == tab ? .blue : .gray)
             }
         }
             .frame(height: 60)
@@ -29,12 +30,3 @@ struct CustomTabBar: View {
             .clipShape(.rect(cornerRadius: 20))
     }
 }
-
-// extension CustomTabBar {
-//
-////    private func createTabBarButton(tab: TabBarItem) -> some View {
-////        Image(systemName: tab.iconName)
-////            .font(.system(size: 24, weight: .bold))
-////            .foregroundStyle(selectedTab == tab ? .blue : .gray)
-////    }
-// }

@@ -27,8 +27,7 @@ struct RootView: View {
         }
         .overlay(alignment: .bottom) {
             CustomTabBar(selectedScreen: $selectedScreen, showTabBar: $showTabBar)
-                .offset(y: showTabBar ? 0 : 200)
-                .animation(Animation.bouncy, value: showTabBar)
+                .hideTabBarAnimation(showTabBar: $showTabBar)
         }
     }
 }

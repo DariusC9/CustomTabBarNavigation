@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		802D28592BC9102400BC7021 /* HideTabBarAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802D28582BC9102400BC7021 /* HideTabBarAnimation.swift */; };
+		802D285B2BC9105500BC7021 /* View Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = 802D285A2BC9105500BC7021 /* View Ext..swift */; };
 		806A93AD2BC420CE0082F5F3 /* CustomTabBarNavigationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A93AC2BC420CE0082F5F3 /* CustomTabBarNavigationApp.swift */; };
 		806A93AF2BC420CE0082F5F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A93AE2BC420CE0082F5F3 /* ContentView.swift */; };
 		806A93B12BC420D00082F5F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806A93B02BC420D00082F5F3 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		802D28582BC9102400BC7021 /* HideTabBarAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideTabBarAnimation.swift; sourceTree = "<group>"; };
+		802D285A2BC9105500BC7021 /* View Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Ext..swift"; sourceTree = "<group>"; };
 		806A93A92BC420CE0082F5F3 /* CustomTabBarNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabBarNavigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		806A93AC2BC420CE0082F5F3 /* CustomTabBarNavigationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarNavigationApp.swift; sourceTree = "<group>"; };
 		806A93AE2BC420CE0082F5F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		802D28572BC90FD100BC7021 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				802D28582BC9102400BC7021 /* HideTabBarAnimation.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		806A93A02BC420CE0082F5F3 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 				80B4E7E12BC6D5AF00B5F4DE /* RootView.swift */,
 				80B4E7E32BC6D99900B5F4DE /* Screen */,
 				80B4E7E42BC6D9B300B5F4DE /* TabBar */,
+				802D28572BC90FD100BC7021 /* ViewModifiers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				80B4E7D92BC6D0D500B5F4DE /* Color ext..swift */,
+				802D285A2BC9105500BC7021 /* View Ext..swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +354,8 @@
 			files = (
 				80B4E7E62BC6DA5800B5F4DE /* TabButton.swift in Sources */,
 				80B4E7E22BC6D5AF00B5F4DE /* RootView.swift in Sources */,
+				802D28592BC9102400BC7021 /* HideTabBarAnimation.swift in Sources */,
+				802D285B2BC9105500BC7021 /* View Ext..swift in Sources */,
 				80B4E7E02BC6D2FB00B5F4DE /* HistoryView.swift in Sources */,
 				80B4E7DC2BC6D15100B5F4DE /* SearchView.swift in Sources */,
 				80B4E7DE2BC6D1F500B5F4DE /* ProfileView.swift in Sources */,

@@ -8,30 +8,32 @@
 import SwiftUI
 
 struct CustomTabBar: View {
+    @Binding var selectedScreen: Int
+    @Binding var showTabBar: Bool
 
     var body: some View {
             HStack(spacing: 40) {
                 TabButton(imageName: "house.fill") {
-                    print("1")
+                    selectedScreen = 0
                 }
                 TabButton(imageName: "magnifyingglass") {
-                    print("2")
+                   selectedScreen = 1
                 }
                 TabButton(imageName: "clock") {
-                    print("3")
+                    selectedScreen = 2
                 }
                 TabButton(imageName: "person.fill") {
-                    print("4")
+                    selectedScreen = 3
                 }
             }
             .frame(height: 60)
-            .padding(.horizontal, 20)
-            .padding(.bottom, 20)
+            .padding([.top, .bottom], 10)
+            .padding([.leading, .trailing], 30)
             .background(Color.white)
             .clipShape(.rect(cornerRadius: 20))
     }
 }
 
 #Preview {
-    CustomTabBar()
+    CustomTabBar(selectedScreen: .constant(0), showTabBar: .constant(true))
 }

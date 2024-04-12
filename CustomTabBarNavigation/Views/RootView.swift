@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RootView: View {
     @State private var selectedScreen = 0
+    @State private var showTabBar = true
 
     var body: some View {
         TabView(selection: $selectedScreen) {
-            HomeView()
+            HomeView(showTabBar: $showTabBar)
                 .tag(0)
 
             SearchView()
@@ -25,7 +26,8 @@ struct RootView: View {
                 .tag(3)
         }
         .overlay(alignment: .bottom) {
-            CustomTabBar()
+            CustomTabBar(selectedScreen: $selectedScreen, showTabBar: $showTabBar)
+                .hideTabBarAnimation(showTabBar: $showTabBar)
         }
     }
 }

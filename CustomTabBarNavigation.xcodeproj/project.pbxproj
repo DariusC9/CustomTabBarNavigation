@@ -28,6 +28,7 @@
 		80CB50922BCA5B5F004B3F36 /* TabBarActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB50912BCA5B5F004B3F36 /* TabBarActionItem.swift */; };
 		80CB50942BCA6336004B3F36 /* HistoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB50932BCA6336004B3F36 /* HistoryDetailsView.swift */; };
 		80D198682BC8032600A1E689 /* HomeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D198672BC8032600A1E689 /* HomeDetailsView.swift */; };
+		80D3C9242BCADD0F0068B688 /* AnyTransition ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3C9232BCADD0F0068B688 /* AnyTransition ext..swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		80CB50912BCA5B5F004B3F36 /* TabBarActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarActionItem.swift; sourceTree = "<group>"; };
 		80CB50932BCA6336004B3F36 /* HistoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailsView.swift; sourceTree = "<group>"; };
 		80D198672BC8032600A1E689 /* HomeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsView.swift; sourceTree = "<group>"; };
+		80D3C9232BCADD0F0068B688 /* AnyTransition ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition ext..swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				80B4E7D92BC6D0D500B5F4DE /* Color ext..swift */,
 				802D285A2BC9105500BC7021 /* View Ext..swift */,
+				80D3C9232BCADD0F0068B688 /* AnyTransition ext..swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				802D285B2BC9105500BC7021 /* View Ext..swift in Sources */,
 				802D285E2BC91F6200BC7021 /* TabBarItem.swift in Sources */,
 				80B4E7E02BC6D2FB00B5F4DE /* HistoryView.swift in Sources */,
+				80D3C9242BCADD0F0068B688 /* AnyTransition ext..swift in Sources */,
 				80CB50942BCA6336004B3F36 /* HistoryDetailsView.swift in Sources */,
 				80B4E7DC2BC6D15100B5F4DE /* SearchView.swift in Sources */,
 				80B4E7DE2BC6D1F500B5F4DE /* ProfileView.swift in Sources */,

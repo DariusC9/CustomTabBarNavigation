@@ -17,13 +17,15 @@ struct CustomTabBar: View {
             tabBarBackground
             if actionTabs.isEmpty {
                 tabBarButtons
-                    .transition(.move(edge: .leading))
+                    .transition(.tabBarItemsTrans(direction: .leading))
             } else {
                 tabBarActions
-                    .transition(.move(edge: .trailing))
+                    .transition(.tabBarItemsTrans(direction: .trailing))
             }
         }
-        .animation(Animation.easeInOut(duration: 0.2), value: actionTabs)
+        .animation(Animation.easeInOut(duration: 0.25), value: actionTabs)
+        .frame(width: 300, height: 60)
+        .clipped()
     }
 }
 
@@ -33,8 +35,6 @@ extension CustomTabBar {
         Color.white
             .frame(height: 60)
             .clipShape(.rect(cornerRadius: 20))
-            .padding([.top, .bottom], 10)
-            .padding([.leading, .trailing], 30)
     }
 
     var tabBarButtons: some View {
@@ -49,7 +49,6 @@ extension CustomTabBar {
                     .foregroundStyle(selectedTab == tab ? .blue : .gray)
             }
         }
-        .frame(height: 60)
     }
 
     var tabBarActions: some View {
@@ -61,6 +60,5 @@ extension CustomTabBar {
                     }
             }
         }
-        .frame(height: 60)
     }
 }

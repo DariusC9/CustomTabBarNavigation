@@ -16,7 +16,7 @@ struct HistoryDetailsView: View {
                 .font(.title)
                 .bold()
                 .padding()
-            Text("Edit mode one")
+            Text("Edit mode on")
             Button {
                 print("click save")
             } label: {

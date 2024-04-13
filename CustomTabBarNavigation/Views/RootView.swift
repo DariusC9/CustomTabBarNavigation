@@ -27,7 +27,9 @@ struct RootView: View {
         VStack {
             selectedTab.selected.view(showTabBar: $showTabBar, tabBarActions: $actionTabs)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .transition(isLeftTransition() ? .move(edge: .leading) : .move(edge: .trailing))
+                .transition(.slide)
+            // SwiftUI bug, when transitioning in the same dirrection more than once, the animation flickers
+            // .transition(isLeftTransition() ? .move(edge: .leading) : .move(edge: .trailing))
         }
         .overlay(alignment: .bottom) {
             CustomTabBar(tabs: tabs, selectedTab: $selectedTab, actionTabs: $actionTabs)
@@ -35,12 +37,12 @@ struct RootView: View {
         }
     }
 
-    private func isLeftTransition() -> Bool {
-        if selectedTab.selected.rawValue <= selectedTab.lastSelected.rawValue {
-            return true
-        }
-        return false
-    }
+//    private func isLeftTransition() -> Bool {
+//        if selectedTab.selected.rawValue <= selectedTab.lastSelected.rawValue {
+//            return true
+//        }
+//        return false
+//    }
 }
 
 #Preview {

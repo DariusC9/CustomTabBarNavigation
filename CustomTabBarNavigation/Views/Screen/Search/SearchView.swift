@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        Text("Search")
-            .font(.title)
-            .bold()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.searchViewBackground.ignoresSafeArea())
+        VStack {
+            Text("Search")
+                .font(.title)
+                .bold()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.searchViewBackground.ignoresSafeArea())
     }
 }
 

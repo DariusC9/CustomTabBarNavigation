@@ -42,7 +42,7 @@ extension CustomTabBar {
             ForEach(tabs, id: \.self) { tab in
                 tab.tabImage()
                     .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.3)) {
+                        withAnimation(.easeInOut(duration: 0.5)) {
                             selectedTab = .init(selected: tab, lastSelected: selectedTab.selected)
                         }
                     }

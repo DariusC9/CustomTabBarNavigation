@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text("Profile")
-            .font(.title)
-            .bold()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.profileViewBackground.ignoresSafeArea())
+        VStack {
+            Text("Profile")
+                .font(.title)
+                .bold()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.profileViewBackground.ignoresSafeArea())
     }
 }
 

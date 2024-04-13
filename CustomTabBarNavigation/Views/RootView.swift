@@ -27,7 +27,7 @@ struct RootView: View {
         VStack {
             selectedTab.selected.view(showTabBar: $showTabBar, tabBarActions: $actionTabs)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                .transition(isLeftTransition() ? .backslide : .frontslide)
+                .transition(isLeftTransition() ? .move(edge: .leading) : .move(edge: .trailing))
         }
         .overlay(alignment: .bottom) {
             CustomTabBar(tabs: tabs, selectedTab: $selectedTab, actionTabs: $actionTabs)
@@ -36,7 +36,7 @@ struct RootView: View {
     }
 
     private func isLeftTransition() -> Bool {
-        if selectedTab.selected.rawValue < selectedTab.lastSelected.rawValue {
+        if selectedTab.selected.rawValue <= selectedTab.lastSelected.rawValue {
             return true
         }
         return false
@@ -45,14 +45,4 @@ struct RootView: View {
 
 #Preview {
     RootView()
-}
-
-extension AnyTransition {
-    static var backslide: AnyTransition {
-        AnyTransition.move(edge: .trailing)
-    }
-
-    static var frontslide: AnyTransition {
-        AnyTransition.move(edge: .leading)
-    }
 }

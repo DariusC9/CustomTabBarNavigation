@@ -11,7 +11,6 @@ struct HomeView: View {
     @Binding var showTabBar: Bool
 
     var body: some View {
-
         NavigationStack {
             VStack {
                 Text("Home")

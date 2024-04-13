@@ -12,13 +12,14 @@ struct HomeDetailsView: View {
     @Environment(\.dismiss) private var dismis
 
     var body: some View {
-
-        Button {
-            dismis()
-        } label: {
-            Text("Back")
+        VStack {
+            Button {
+                dismis()
+            } label: {
+                Text("Back")
+            }
+            .buttonStyle(.bordered)
         }
-        .buttonStyle(.bordered)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.homeViewBackground.ignoresSafeArea())
         .onAppear {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTabBar: View {
     let tabs: [TabBarItem]
-    @Binding var selectedTab: TabBarItem
+    @Binding var selectedTab: SelectedItem
     @Binding var actionTabs: [TabBarActionItem]
 
     var body: some View {
@@ -17,24 +17,23 @@ struct CustomTabBar: View {
             tabBarBackground
             if actionTabs.isEmpty {
                 tabBarButtons
-                    .transition(.move(edge: .leading))
+                    .transition(.tabBarItemsTrans(direction: .leading))
             } else {
                 tabBarActions
-                    .transition(.move(edge: .trailing))
+                    .transition(.tabBarItemsTrans(direction: .trailing))
             }
         }
-        .animation(Animation.easeInOut(duration: 0.2), value: actionTabs)
+        .animation(Animation.easeInOut(duration: 0.25), value: actionTabs)
+        .frame(width: 300, height: 80)
+        .clipped()
     }
 }
 
 extension CustomTabBar {
 
     var tabBarBackground: some View {
-        Color.white
-            .frame(height: 60)
+        Color.white.opacity(0.75)
             .clipShape(.rect(cornerRadius: 20))
-            .padding([.top, .bottom], 10)
-            .padding([.leading, .trailing], 30)
     }
 
     var tabBarButtons: some View {
@@ -42,14 +41,13 @@ extension CustomTabBar {
             ForEach(tabs, id: \.self) { tab in
                 tab.tabImage()
                     .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            selectedTab = tab
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            selectedTab = .init(selected: tab, lastSelected: selectedTab.selected)
                         }
                     }
-                    .foregroundStyle(selectedTab == tab ? .blue : .gray)
+                    .foregroundStyle(selectedTab.selected == tab ? .blue : .gray)
             }
         }
-        .frame(height: 60)
     }
 
     var tabBarActions: some View {
@@ -61,6 +59,5 @@ extension CustomTabBar {
                     }
             }
         }
-        .frame(height: 60)
     }
 }

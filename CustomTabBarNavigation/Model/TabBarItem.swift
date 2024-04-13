@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum TabBarItem: String, CaseIterable, CustomStringConvertible {
+enum TabBarItem: Int, CaseIterable, CustomStringConvertible {
     // main tabs
-    case home
+    case home = 0
     case search
     case history
     case profile

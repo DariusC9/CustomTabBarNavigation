@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum TabBarItem: String, CaseIterable, CustomStringConvertible {
+    // main tabs
     case home
     case search
     case history

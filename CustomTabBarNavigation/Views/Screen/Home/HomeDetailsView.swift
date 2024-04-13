@@ -20,6 +20,7 @@ struct HomeDetailsView: View {
             }
             .buttonStyle(.bordered)
         }
+        .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.homeViewBackground.ignoresSafeArea())
         .onAppear {

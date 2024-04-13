@@ -26,6 +26,7 @@ struct HistoryDetailsView: View {
             }
             .buttonStyle(.bordered)
         }
+        .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.historyViewBackground.ignoresSafeArea())
         .onAppear {

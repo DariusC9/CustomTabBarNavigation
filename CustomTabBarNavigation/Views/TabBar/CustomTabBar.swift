@@ -13,18 +13,29 @@ struct CustomTabBar: View {
     @Binding var actionTabs: [TabBarActionItem]
 
     var body: some View {
-        VStack {
+        ZStack {
+            tabBarBackground
             if actionTabs.isEmpty {
                 tabBarButtons
+                    .transition(.move(edge: .leading))
             } else {
                 tabBarActions
+                    .transition(.move(edge: .trailing))
             }
         }
-        .animation(.easeInOut)
+        .animation(Animation.easeInOut(duration: 0.2), value: actionTabs)
     }
 }
 
 extension CustomTabBar {
+
+    var tabBarBackground: some View {
+        Color.white
+            .frame(height: 60)
+            .clipShape(.rect(cornerRadius: 20))
+            .padding([.top, .bottom], 10)
+            .padding([.leading, .trailing], 30)
+    }
 
     var tabBarButtons: some View {
         HStack(spacing: 40) {
@@ -39,11 +50,6 @@ extension CustomTabBar {
             }
         }
         .frame(height: 60)
-        .padding([.top, .bottom], 10)
-        .padding([.leading, .trailing], 30)
-        .background(Color.white)
-        .clipShape(.rect(cornerRadius: 20))
-        .transition(.move(edge: .leading))
     }
 
     var tabBarActions: some View {
@@ -56,10 +62,5 @@ extension CustomTabBar {
             }
         }
         .frame(height: 60)
-        .padding([.top, .bottom], 10)
-        .padding([.leading, .trailing], 30)
-        .background(Color.white)
-        .clipShape(.rect(cornerRadius: 20))
-        .transition(.move(edge: .trailing))
     }
 }

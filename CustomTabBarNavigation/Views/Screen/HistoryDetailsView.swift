@@ -27,10 +27,14 @@ struct HistoryDetailsView: View {
         .containerRelativeFrame([.horizontal, .vertical])
         .background(Color.historyViewBackground)
         .onAppear {
-            actionTabs = [.goBack, .delete, .notFavorite, .favorite]
+            withAnimation {
+                actionTabs = [.goBack, .delete, .notFavorite, .favorite]
+            }
         }
         .onDisappear {
-            actionTabs = []
+            withAnimation {
+                actionTabs = []
+            }
         }
     }
 }

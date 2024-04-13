@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTabBar: View {
     let tabs: [TabBarItem]
-    @Binding var selectedTab: TabBarItem
+    @Binding var selectedTab: SelectedItem
     @Binding var actionTabs: [TabBarActionItem]
 
     var body: some View {
@@ -42,11 +42,11 @@ extension CustomTabBar {
             ForEach(tabs, id: \.self) { tab in
                 tab.tabImage()
                     .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            selectedTab = tab
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            selectedTab = .init(selected: tab, lastSelected: selectedTab.selected)
                         }
                     }
-                    .foregroundStyle(selectedTab == tab ? .blue : .gray)
+                    .foregroundStyle(selectedTab.selected == tab ? .blue : .gray)
             }
         }
     }

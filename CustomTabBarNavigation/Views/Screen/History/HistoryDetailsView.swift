@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HistoryDetailsView: View {
     @Binding var actionTabs: [TabBarActionItem]
+    @Environment(\.dismiss) private var dismis
 
     var body: some View {
         VStack {
@@ -18,22 +19,18 @@ struct HistoryDetailsView: View {
                 .padding()
             Text("Edit mode on")
             Button {
-                print("click save")
+                actionTabs = []
+                dismis()
             } label: {
                 Text("Save")
             }
             .buttonStyle(.bordered)
         }
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(Color.historyViewBackground)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.historyViewBackground.ignoresSafeArea())
         .onAppear {
             withAnimation {
                 actionTabs = [.goBack, .delete, .notFavorite, .favorite]
-            }
-        }
-        .onDisappear {
-            withAnimation {
-                actionTabs = []
             }
         }
     }

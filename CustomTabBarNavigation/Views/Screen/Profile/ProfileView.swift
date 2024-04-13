@@ -12,8 +12,8 @@ struct ProfileView: View {
         Text("Profile")
             .font(.title)
             .bold()
-            .containerRelativeFrame([.horizontal, .vertical])
-            .background(Color.profileViewBackground)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.profileViewBackground.ignoresSafeArea())
     }
 }
 

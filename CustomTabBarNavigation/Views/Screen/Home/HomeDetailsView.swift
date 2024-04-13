@@ -9,17 +9,18 @@ import SwiftUI
 
 struct HomeDetailsView: View {
     @Binding var showTabBar: Bool
+    @Environment(\.dismiss) private var dismis
 
     var body: some View {
 
         Button {
-            print("push next")
+            dismis()
         } label: {
             Text("Back")
         }
         .buttonStyle(.bordered)
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(Color.homeViewBackground)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.homeViewBackground.ignoresSafeArea())
         .onAppear {
             showTabBar = false
         }

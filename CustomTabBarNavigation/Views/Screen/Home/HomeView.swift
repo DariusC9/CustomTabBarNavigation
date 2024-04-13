@@ -23,8 +23,8 @@ struct HomeView: View {
                 }
                 .buttonStyle(.bordered)
             }
-            .containerRelativeFrame([.horizontal, .vertical])
-            .background(Color.homeViewBackground)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.homeViewBackground.ignoresSafeArea())
         }
     }
 }

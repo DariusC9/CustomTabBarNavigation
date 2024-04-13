@@ -21,8 +21,8 @@ struct HistoryView: View {
                 }
                 .buttonStyle(.bordered)
             }
-            .containerRelativeFrame([.horizontal, .vertical])
-            .background(Color.historyViewBackground)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.historyViewBackground.ignoresSafeArea())
         }
     }
 }

@@ -12,8 +12,8 @@ struct SearchView: View {
         Text("Search")
             .font(.title)
             .bold()
-            .containerRelativeFrame([.horizontal, .vertical])
-            .background(Color.searchViewBackground)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.searchViewBackground.ignoresSafeArea())
     }
 }
 

@@ -24,7 +24,7 @@ struct CustomTabBar: View {
             }
         }
         .animation(Animation.easeInOut(duration: 0.25), value: actionTabs)
-        .frame(width: 300, height: 60)
+        .frame(width: 300, height: 80)
         .clipped()
     }
 }
@@ -32,8 +32,7 @@ struct CustomTabBar: View {
 extension CustomTabBar {
 
     var tabBarBackground: some View {
-        Color.white
-            .frame(height: 60)
+        Color.white.opacity(0.75)
             .clipShape(.rect(cornerRadius: 20))
     }
 

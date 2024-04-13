@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HistoryDetailsView: View {
+    @Binding var actionTabs: [TabBarActionItem]
 
     var body: some View {
         VStack {
@@ -25,9 +26,11 @@ struct HistoryDetailsView: View {
         }
         .containerRelativeFrame([.horizontal, .vertical])
         .background(Color.historyViewBackground)
+        .onAppear {
+            actionTabs = [.goBack, .delete, .notFavorite, .favorite]
+        }
+        .onDisappear {
+            actionTabs = []
+        }
     }
-}
-
-#Preview {
-    HistoryDetailsView()
 }

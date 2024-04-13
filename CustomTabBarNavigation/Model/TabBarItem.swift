@@ -40,14 +40,14 @@ enum TabBarItem: String, CaseIterable, CustomStringConvertible {
         }
     }
 
-    @ViewBuilder func view(bindingBool: Binding<Bool>) -> some View {
+    @ViewBuilder func view(showTabBar: Binding<Bool>, tabBarActions: Binding<[TabBarActionItem]>) -> some View {
         switch self {
         case .home:
-            HomeView(showTabBar: bindingBool)
+            HomeView(showTabBar: showTabBar)
         case .search:
             SearchView()
         case .history:
-            HistoryView()
+            HistoryView(actionTabs: tabBarActions)
         case .profile:
             ProfileView()
         }

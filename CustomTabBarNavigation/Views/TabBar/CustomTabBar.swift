@@ -20,11 +20,7 @@ struct CustomTabBar: View {
                 tabBarActions
             }
         }
-        .onAppear {
-            withAnimation {
-                actionTabs = actionTabs
-            }
-        }
+        .animation(.easeInOut)
     }
 }
 
@@ -47,6 +43,7 @@ extension CustomTabBar {
         .padding([.leading, .trailing], 30)
         .background(Color.white)
         .clipShape(.rect(cornerRadius: 20))
+        .transition(.move(edge: .leading))
     }
 
     var tabBarActions: some View {

@@ -17,7 +17,7 @@ struct RootView: View {
     var body: some View {
 
         VStack {
-            selectedTab.view(bindingBool: $showTabBar)
+            selectedTab.view(showTabBar: $showTabBar, tabBarActions: $actionTabs)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 .transition(.slide)
         }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HistoryView: View {
+    @Binding var actionTabs: [TabBarActionItem]
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,7 +16,7 @@ struct HistoryView: View {
                     .font(.title)
                     .bold()
                     .padding()
-                NavigationLink(destination: HistoryDetailsView()) {
+                NavigationLink(destination: HistoryDetailsView(actionTabs: $actionTabs)) {
                     Text("Edit")
                 }
                 .buttonStyle(.bordered)
@@ -24,8 +25,4 @@ struct HistoryView: View {
             .background(Color.historyViewBackground)
         }
     }
-}
-
-#Preview {
-    HistoryView()
 }

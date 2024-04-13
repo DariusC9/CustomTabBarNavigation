@@ -15,7 +15,7 @@ struct HistoryView: View {
                     .font(.title)
                     .bold()
                     .padding()
-                NavigationLink(destination: ProfileView()) {
+                NavigationLink(destination: HistoryDetailsView()) {
                     Text("Edit")
                 }
                 .buttonStyle(.bordered)

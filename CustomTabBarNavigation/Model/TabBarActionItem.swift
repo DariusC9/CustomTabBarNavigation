@@ -13,7 +13,7 @@ enum TabBarActionItem: String, CaseIterable, CustomStringConvertible {
     case delete
     case notFavorite
     case favorite
-    
+
     var description: String {
         switch self {
         case .goBack: "Back"
@@ -43,5 +43,4 @@ enum TabBarActionItem: String, CaseIterable, CustomStringConvertible {
                 .foregroundStyle(.yellow)
         }
     }
-    
 }

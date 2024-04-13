@@ -29,7 +29,7 @@ struct CustomTabBar: View {
 }
 
 extension CustomTabBar {
-    
+
     var tabBarButtons: some View {
         HStack(spacing: 40) {
             ForEach(tabs, id: \.self) { tab in
@@ -48,13 +48,13 @@ extension CustomTabBar {
         .background(Color.white)
         .clipShape(.rect(cornerRadius: 20))
     }
-    
+
     var tabBarActions: some View {
         HStack(spacing: 40) {
             ForEach(actionTabs, id: \.self) { actionTabs in
                 actionTabs.tabImage()
                     .onTapGesture {
-                        //custom function
+                        // custom function
                     }
             }
         }

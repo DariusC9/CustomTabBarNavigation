@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject private var tabBarManager: TabBarManager
 
     var body: some View {
         NavigationStack {
@@ -17,7 +16,7 @@ struct HomeView: View {
                     .font(.title)
                     .bold()
                     .padding()
-                NavigationLink(destination: HomeDetailsView(showTabBar: $tabBarManager.showTabBar)) {
+                NavigationLink(destination: HomeDetailsView()) {
                     Text("Push next")
                 }
                 .buttonStyle(.bordered)

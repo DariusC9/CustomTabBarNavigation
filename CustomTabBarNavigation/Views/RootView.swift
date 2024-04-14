@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-struct SelectedItem {
-    let selected: TabBarItem
-    let lastSelected: TabBarItem
-
-    static func initialState() -> SelectedItem {
-        return .init(selected: .home, lastSelected: .home)
-    }
-}
-
 struct RootView: View {
     @StateObject private var tabBarManager = TabBarManager()
 

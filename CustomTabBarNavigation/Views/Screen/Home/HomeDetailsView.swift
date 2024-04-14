@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeDetailsView: View {
-    @Binding var showTabBar: Bool
+    @EnvironmentObject private var tabBarManager: TabBarManager
     @Environment(\.dismiss) private var dismis
 
     var body: some View {
@@ -24,14 +24,14 @@ struct HomeDetailsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.homeViewBackground.ignoresSafeArea())
         .onAppear {
-            showTabBar = false
+            tabBarManager.showTabBar = false
         }
         .onDisappear {
-            showTabBar = true
+            tabBarManager.showTabBar = true
         }
     }
 }
 
 #Preview {
-    HomeDetailsView(showTabBar: .constant(false))
+    HomeDetailsView()
 }

@@ -11,18 +11,7 @@ extension AnyTransition {
 
     static func tabBarItemsTrans(direction: Edge) -> AnyTransition {
         let insertion = AnyTransition.move(edge: direction)
-        let removal = AnyTransition.move(edge: direction.opposite)
+        let removal = AnyTransition.move(edge: direction)
         return .asymmetric(insertion: insertion, removal: removal)
-    }
-}
-
-extension Edge {
-    var opposite: Edge {
-        switch self {
-        case .top: return .bottom
-        case .bottom: return .top
-        case .leading: return .trailing
-        case .trailing: return .leading
-        }
     }
 }

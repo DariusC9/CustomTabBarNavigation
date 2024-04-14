@@ -15,12 +15,14 @@ struct CustomTabBar: View {
     var body: some View {
         ZStack {
             tabBarBackground
-            if actionTabs.isEmpty {
-                tabBarButtons
-                    .transition(.tabBarItemsTrans(direction: .leading))
-            } else {
-                tabBarActions
-                    .transition(.tabBarItemsTrans(direction: .trailing))
+            ZStack {
+                if actionTabs.isEmpty {
+                    tabBarButtons
+                        .transition(.tabBarItemsTrans(direction: .leading))
+                } else {
+                    tabBarActions
+                        .transition(.tabBarItemsTrans(direction: .trailing))
+                }
             }
         }
         .animation(Animation.easeInOut(duration: 0.25), value: actionTabs)

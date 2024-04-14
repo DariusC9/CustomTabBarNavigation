@@ -17,23 +17,21 @@ struct SelectedItem {
 }
 
 struct RootView: View {
-    let tabs: [TabBarItem] = [.home, .search, .history, .profile]
-    @State private var actionTabs: [TabBarActionItem] = []
-    @State private var selectedTab = SelectedItem.initialState()
-    @State private var selectedScreen = 0
-    @State private var showTabBar = true
+    @StateObject private var tabBarManager = TabBarManager()
 
     var body: some View {
         VStack {
-            selectedTab.selected.view(showTabBar: $showTabBar, tabBarActions: $actionTabs)
+            tabBarManager.selectedTab.selected.view(tabBarManager: tabBarManager)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 .transition(.slide)
             // SwiftUI bug, when transitioning in the same dirrection more than once, the animation flickers
             // .transition(isLeftTransition() ? .move(edge: .leading) : .move(edge: .trailing))
         }
         .overlay(alignment: .bottom) {
-            CustomTabBar(tabs: tabs, selectedTab: $selectedTab, actionTabs: $actionTabs)
-                .hideTabBarAnimation(showTabBar: $showTabBar)
+            CustomTabBar(tabs: tabBarManager.tabs,
+                         selectedTab: $tabBarManager.selectedTab,
+                         actionTabs: $tabBarManager.actionTabs)
+            .hideTabBarAnimation(showTabBar: $tabBarManager.showTabBar)
         }
     }
 
